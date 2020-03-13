@@ -47,11 +47,20 @@ public class PhoneBook {
     }
 
     public String reverseLookup(String phoneNumber)  {
+        for(HashMap.Entry<String, List<String>> entry : map.entrySet()){
+            if(entry.getValue().contains(phoneNumber)){
+                return entry.getKey();
+            }
+        }
         return null;
     }
 
     public List<String> getAllContactNames() {
-        return null;
+        ArrayList<String> names = new ArrayList<>();
+        for(HashMap.Entry<String, List<String>> entry : map.entrySet()) {
+            names.add(entry.getKey());
+        }
+        return names;
     }
 
     public Map<String, List<String>> getMap() {
